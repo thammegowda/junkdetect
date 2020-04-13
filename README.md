@@ -1,7 +1,8 @@
 # Junk, Not-Junk Detector
 
 This tool is built to do just one simple task: detect junk and not-junk texts from a variety of languages.
-It can be very useful to test tools that extract, decompress and/or decrypt natural language texts.
+Just like that famous [hotdog not-hotdog](https://www.youtube.com/watch?v=pqTntG1RXSY), but applied on natural language text.
+It can be very useful to test tools that extract, decompress, and/or decrypt natural language texts.
 
 
 # Setup
