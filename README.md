@@ -12,8 +12,13 @@ Uses [fairseq](https://github.com/pytorch/fairseq)
 #conda create -n junkdetect python=3.7 pip 
 #conda activate junkdetect
 
-# assuming you have new python such as 3.7
+# Installing directly from github
 pip install git+https://github.com/thammegowda/junkdetect
+
+# Installing after cloning this repo
+git clone https://github.com/thammegowda/junkdetect
+cd junkdetect
+pip install .
 
 ```
 ## How to use
