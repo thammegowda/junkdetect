@@ -30,8 +30,7 @@ printf "This is a good sentence. \nT6785*&^T is 747658 you T&*^\n" | junkdetect
 0.0747487	T6785*&^T is 747658 you T&*^
 ```
 The output is one line per input, with two column separated  by `\t`. 
-The first column has `perplexity`: a higher value implies not good not-junk, and lower means junk.
-If you dont want input sentences back, use `cat input.txt | junkdetect | cut -f1 > scores.txt`
+The first column has `perplexity`: a lower value (i.e close to 0.0) means junk and an higher value (close to 1.0) means not-junk. If you dont want input sentences back in the output, please cut them out -- listerally just use `junkdetect | cut -f1 > scores.txt`
 
 # How does this work
 *junkdetect* looks like only a few lines of python code, but under the hood, it hides a great deal of complexity.  
