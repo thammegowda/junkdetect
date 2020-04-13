@@ -10,7 +10,7 @@ Uses [fairseq](https://github.com/pytorch/fairseq)
 ```bash
 # Optionally create a brand new conda environment for this
 #conda create -n junkdetct python=3.7 pip 
-#conda activate fjunkdetct
+#conda activate junkdetct
 
 # assuming you have new python such as 3.7
 pip install git+https://github.com/thammegowda/junkdetect
