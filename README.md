@@ -30,12 +30,11 @@ printf "This is a good sentence. \nT6785*&^T is 747658 you T&*^\n" | junkdetect
 0.0747487	T6785*&^T is 747658 you T&*^
 ```
 The output is one line per input, with two column separated  by `\t`. 
-The first column has `perplexity`: a lower value (i.e close to 0.0) means junk and an higher value (close to 1.0) means not-junk. If you dont want input sentences back in the output, please cut them out -- listerally just use `junkdetect | cut -f1 > scores.txt`
+The first column has `perplexity`: a lower value (i.e close to 0.0) means junk and an higher value (close to 1.0) means not-junk. If you dont want input sentences back in the output, please cut them out -- just use `junkdetect | cut -f1 > scores.txt`
 
 # How does this work
-*junkdetect* looks like only a few lines of python code, but under the hood, it hides a great deal of complexity.  
-It uses perplexity from neural (masked/auto-regressive) language models that are trained on tera bytes of web text
-to tell junk and not-junk apart.   
+**[junkdetect](https://github.com/thammegowda/junkdetect)** looks like only a few lines of python code, but under the hood, it hides a great deal of complexity.  
+It uses perplexity from neural (masked/auto-regressive) language models that were trained on tera bytes of web text from 100s of languages.   
 Specifically, it uses Facebookresearch's [XML-R](https://github.com/facebookresearch/XLM/) retrieved from [torch.hub](https://pytorch.org/hub/).
 Quoting the original developers of XML-R and [their paper, (see Table 6)](https://arxiv.org/pdf/1911.02116.pdf)
 > XLM-R handles the following 100 languages: Afrikaans, Albanian, Amharic, Arabic, Armenian, Assamese, Azerbaijani, Basque, Belarusian, Bengali, Bengali Romanized, Bosnian, Breton, Bulgarian, Burmese, Burmese, Catalan, Chinese (Simplified), Chinese (Traditional), Croatian, Czech, Danish, Dutch, English, Esperanto, Estonian, Filipino, Finnish, French, Galician, Georgian, German, Greek, Gujarati, Hausa, Hebrew, Hindi, Hindi Romanized, Hungarian, Icelandic, Indonesian, Irish, Italian, Japanese, Javanese, Kannada, Kazakh, Khmer, Korean, Kurdish (Kurmanji), Kyrgyz, Lao, Latin, Latvian, Lithuanian, Macedonian, Malagasy, Malay, Malayalam, Marathi, Mongolian, Nepali, Norwegian, Oriya, Oromo, Pashto, Persian, Polish, Portuguese, Punjabi, Romanian, Russian, Sanskri, Scottish, Gaelic, Serbian, Sindhi, Sinhala, Slovak, Slovenian, Somali, Spanish, Sundanese, Swahili, Swedish, Tamil, Tamil Romanized, Telugu, Telugu Romanized, Thai, Turkish, Ukrainian, Urdu, Urdu Romanized, Uyghur, Uzbek, Vietnamese, Welsh, Western, Frisian, Xhosa, Yiddish.
