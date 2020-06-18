@@ -18,7 +18,7 @@ classifiers = [  # copied from https://pypi.org/classifiers/
     'Topic :: Utilities',
     'Topic :: Text Processing :: General',
     'Topic :: Text Processing :: Filters',
-    'License :: OSI Approved :: Apache Software License 2.0 ',
+    'License :: OSI Approved :: Apache Software License',
     'Programming Language :: Python :: 3',
 ]
 

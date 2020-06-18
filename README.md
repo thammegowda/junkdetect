@@ -10,17 +10,20 @@ Uses [fairseq](https://github.com/pytorch/fairseq)
 
 ```bash
 # Optionally create a brand new conda environment for this
-#conda create -n junkdetect python=3.7 pip 
+#conda create -n junkdetect python=3.7
 #conda activate junkdetect
 
-# Installing directly from github
+# Install: use only one of these methods
+# 1. from pypi; recommended
+pip install junkdetect
+
+# 2. latest master branch
 pip install git+https://github.com/thammegowda/junkdetect
 
-# Installing after cloning this repo
-git clone https://github.com/thammegowda/junkdetect
-cd junkdetect
-pip install .
-
+# 3. for development
+git clone https://github.com/thammegowda/junkdetect \
+     && cd junkdetect \
+     && pip install --editable .
 ```
 ## How to use
 Once you install it via pip, `junkdetect` or `python -m junkdetect` can be used to invoke from commandline
