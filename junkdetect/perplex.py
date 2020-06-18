@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 #
-# Author: Thamme Gowda [tg (at) isi (dot) edu] 
+# Author: Thamme Gowda [tg (at) isi (dot) edu]
 # Created: 4/12/20
 import torch
 import logging as log
@@ -26,7 +26,7 @@ class LangModel:
     def force_decode(self, sentence):
         indices = self.model.encode(sentence).view(1, -1)  # [B=1 x T]
         feats = self.model.extract_features(indices)  # [B=1 x T x D]
-        scores = self.model.model.output_layer(feats)  # [B=1 x T x V]
+        scores = self.model.model.encoder.output_layer(feats)  # [B=1 x T x V]
         log_probs = torch.log_softmax(scores, dim=-1)  # [B=1 x T x V]
         lop_probs = log_probs.gather(dim=2, index=indices.unsqueeze(2))  # [B x T x 1]
         log_prob = lop_probs.squeeze(2).sum(dim=1)  # [B=1 x T] -> [B=1]
