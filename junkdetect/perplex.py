@@ -25,6 +25,7 @@ class LangModel:
 
     def force_decode(self, sentence):
         indices = self.model.encode(sentence).view(1, -1)  # [B=1 x T]
+        indices = indices.to(self.model.device)  # move to device
         feats = self.model.extract_features(indices)  # [B=1 x T x D]
         scores = self.model.model.encoder.output_layer(feats)  # [B=1 x T x V]
         log_probs = torch.log_softmax(scores, dim=-1)  # [B=1 x T x V]
